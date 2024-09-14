@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pin : MonoBehaviour
 {
     [SerializeField] GameObject pin;
+<<<<<<< Updated upstream
     [SerializeField] PaperStack paperStack;
 
     private bool triggered;
@@ -32,6 +33,12 @@ public class Pin : MonoBehaviour
     void PlacePin()
     {
         Debug.Log("PlacePin");
+=======
+    [SerializeField] private int numofPins;
+
+    void OnClick() {
+        if (numofPins <= 0) return;
+>>>>>>> Stashed changes
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosInWorld.z = 0f;
 
@@ -42,6 +49,7 @@ public class Pin : MonoBehaviour
         if (colliders.Length > 0)
         {
             GameObject newPin = Instantiate(pin, mousePosInWorld, Quaternion.identity);
+            numofPins--;
             foreach (Collider2D collider in colliders)
             {
                 Rigidbody2D rb = collider.attachedRigidbody;

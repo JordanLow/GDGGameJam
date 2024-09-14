@@ -6,6 +6,7 @@ public class Stackable : MonoBehaviour
 {
     [SerializeField] Vector3 initialPosition;
     [SerializeField] Vector3 initialScale;
+    [SerializeField] Vector3 fullScale;
     void Start()
     {
         ResetToStack();
@@ -19,6 +20,6 @@ public class Stackable : MonoBehaviour
 
     public void ShowFullSize() 
     {
-        transform.localScale = new Vector3(1f, 1f, 1f);
+        transform.localScale = fullScale;
     }
 }
