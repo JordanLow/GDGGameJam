@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class PaperStack : MonoBehaviour
@@ -9,10 +10,12 @@ public class PaperStack : MonoBehaviour
 
     private Dictionary<Rigidbody2D, Vector2> originalVelocities = new Dictionary<Rigidbody2D, Vector2>();
     private Dictionary<Rigidbody2D, float> originalAngularMomentums = new Dictionary<Rigidbody2D, float>();
-    public TMP_Text toolText;
 
     private float originalGravity = 1f;
     private bool isFrozen = true; // Track toggle state, true for frozen, false for play
+    [SerializeField] Sprite freeze;
+    [SerializeField] Sprite play;
+    [SerializeField] Image spriteRenderer;
 
     public bool hoveringOnItem = false;
 
@@ -44,6 +47,7 @@ public class PaperStack : MonoBehaviour
     private void DisableGravity()
     {
         isFrozen = true;
+        spriteRenderer.sprite = play;
         foreach (GameObject robj in paperList)
         {
             Rigidbody2D rb = robj.GetComponent<Rigidbody2D>();
@@ -59,6 +63,7 @@ public class PaperStack : MonoBehaviour
     public void EnableGravity()
     {
         isFrozen = false;
+        spriteRenderer.sprite = freeze;
         foreach (GameObject robj in paperList)
         {
             Rigidbody2D rb = robj.GetComponent<Rigidbody2D>();
