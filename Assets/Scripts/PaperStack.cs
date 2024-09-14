@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PaperStack : MonoBehaviour
 {
@@ -8,13 +9,29 @@ public class PaperStack : MonoBehaviour
 
     private Dictionary<Rigidbody2D, Vector2> originalVelocities = new Dictionary<Rigidbody2D, Vector2>();
     private Dictionary<Rigidbody2D, float> originalAngularMomentums = new Dictionary<Rigidbody2D, float>();
+    public TMP_Text toolText;
 
     private float originalGravity = 1f;
     private bool isFrozen = true; // Track toggle state, true for frozen, false for play
 
-    void Start() {
+    // Scrapped
+    // private int toolSelection = 0;
+    // 0: paper dragging
+    // 1: stapler
+    // 2: pin
+    // private string[] tools = { "Dragging", "Stapler", "Pin" };
+
+    void Start()
+    {
         DisableGravity();
     }
+
+    // public void ChangeTool()
+    // {
+    //     toolSelection++;
+    //     toolSelection %= 3;
+    //     toolText.text = tools[toolSelection];
+    // }
 
     // Method to disable gravity on all pieces of paper
     private void DisableGravity()
@@ -49,15 +66,19 @@ public class PaperStack : MonoBehaviour
 
     public void Toggle()
     {
-        if (isFrozen) {
+        if (isFrozen)
+        {
             EnableGravity();
-        } else {
+        }
+        else
+        {
             DisableGravity();
         }
     }
 
-    public void AddElement(GameObject elem) {
+    public void AddElement(GameObject elem)
+    {
         paperList.Add(elem);
         this.DisableGravity();
-        }
+    }
 }

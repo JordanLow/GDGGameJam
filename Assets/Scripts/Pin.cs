@@ -6,8 +6,26 @@ public class Pin : MonoBehaviour
 {
     [SerializeField] GameObject pin;
 
-    void OnClick() {
-        Debug.Log("click");
+    private bool triggered;
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!triggered)
+            {
+                PlacePin();
+            }
+            triggered = true;
+        }
+        else
+        {
+            triggered = false;
+        }
+    }
+
+    void PlacePin()
+    {
+        Debug.Log("PlacePin");
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosInWorld.z = 0f;
 
@@ -15,7 +33,8 @@ public class Pin : MonoBehaviour
 
         Debug.Log(colliders);
 
-        if (colliders.Length > 0) {
+        if (colliders.Length > 0)
+        {
             GameObject newPin = Instantiate(pin, mousePosInWorld, Quaternion.identity);
             foreach (Collider2D collider in colliders)
             {
