@@ -39,12 +39,9 @@ public class DetectorLogic : MonoBehaviour
 
     public void DetermineCompletion()
     {
-        Debug.Log("Outer: " + outerDetectsPaper);
         Collider2D[] colliders = new Collider2D[10];
         int numColliders = Physics2D.OverlapCollider(GetComponent<Collider2D>(), new ContactFilter2D().NoFilter(), colliders);
         outerDetectsPaper = numColliders > 1;
-        Debug.Log(numColliders);
-        Debug.Log(colliders[0]);
         if (outerDetectsPaper || !CheckInnerDetectors())
         {
             statusText.text = "Does not fit :(";

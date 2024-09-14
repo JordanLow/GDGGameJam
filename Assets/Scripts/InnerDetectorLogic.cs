@@ -19,6 +19,7 @@ public class InnerDetectorLogic : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Paper"))
         {
+            Debug.Log("touching" +gameObject.name);
             touchingPaper = true;
         }
     }
