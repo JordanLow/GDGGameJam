@@ -22,13 +22,10 @@ public class Stapler : MonoBehaviour
 
     void PlaceStaple()
     {
-        Debug.Log("click");
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosInWorld.z = 0f;
 
         Collider2D[] colliders = Physics2D.OverlapPointAll(mousePosInWorld);
-
-        Debug.Log(colliders);
 
         if (colliders.Length > 0)
         {
