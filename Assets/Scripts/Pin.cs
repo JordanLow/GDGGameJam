@@ -13,7 +13,8 @@ public class Pin : MonoBehaviour
     void Start()
     {
         pin.GetComponent<Removable>().UpdatePaperStack(paperStack);
-    }g
+    }
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
