@@ -5,7 +5,7 @@ using UnityEngine;
 public class Stapler : MonoBehaviour
 {
     [SerializeField] GameObject staple;
-    [SerializeField] TogglePlayFreeze toggleScript;
+    [SerializeField] PaperStack toggleScript;
 
     void OnRightClick() {
         Debug.Log("click");
@@ -24,7 +24,7 @@ public class Stapler : MonoBehaviour
                 if (rb != null)
                 {
                     HingeJoint2D hinge = newStaple.AddComponent<HingeJoint2D>();
-                    toggleScript.AddElement(newStaple.GetComponent<Rigidbody2D>());
+                    toggleScript.AddElement(newStaple);
                     hinge.connectedBody = rb;
                 }
             }

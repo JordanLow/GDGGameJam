@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TogglePlayFreeze : MonoBehaviour
+public class PaperStack : MonoBehaviour
 {
-    [SerializeField] private List<Rigidbody2D> paperList = new List<Rigidbody2D>();
+    [SerializeField] private List<GameObject> paperList = new List<GameObject>();
 
     private Dictionary<Rigidbody2D, Vector2> originalVelocities = new Dictionary<Rigidbody2D, Vector2>();
     private Dictionary<Rigidbody2D, float> originalAngularMomentums = new Dictionary<Rigidbody2D, float>();
@@ -21,8 +21,9 @@ public class TogglePlayFreeze : MonoBehaviour
     {
         Debug.Log("Disabled Gravity");
         isFrozen = true;
-        foreach (Rigidbody2D rb in paperList)
+        foreach (GameObject robj in paperList)
         {
+            Rigidbody2D rb = robj.GetComponent<Rigidbody2D>();
             rb.gravityScale = 0f;
             originalVelocities[rb] = rb.velocity;
             rb.velocity = Vector2.zero;
@@ -37,8 +38,9 @@ public class TogglePlayFreeze : MonoBehaviour
     private void EnableGravity()
     {
         isFrozen = false;
-        foreach (Rigidbody2D rb in paperList)
+        foreach (GameObject robj in paperList)
         {
+            Rigidbody2D rb = robj.GetComponent<Rigidbody2D>();
             rb.gravityScale = originalGravity;
             rb.velocity = originalVelocities[rb];
             rb.angularVelocity = originalAngularMomentums[rb];
@@ -54,7 +56,7 @@ public class TogglePlayFreeze : MonoBehaviour
         }
     }
 
-    public void AddElement(Rigidbody2D elem) {
+    public void AddElement(GameObject elem) {
         paperList.Add(elem);
         this.DisableGravity();
         }

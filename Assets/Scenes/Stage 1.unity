@@ -310,11 +310,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5150557161475897461, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.52
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5150557161475897461, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.65
+      value: -0.82
       objectReference: {fileID: 0}
     - target: {fileID: 5150557161475897461, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: m_LocalPosition.z
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staple: {fileID: 1863059516776725472, guid: 76d51505354364d35b1dac59b12099f8, type: 3}
-  toggleScript: {fileID: 2001756294}
+  toggleScript: {fileID: 2005876212}
 --- !u!1 &1538926837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,7 +1155,6 @@ GameObject:
   - component: {fileID: 2001756297}
   - component: {fileID: 2001756296}
   - component: {fileID: 2001756295}
-  - component: {fileID: 2001756294}
   m_Layer: 5
   m_Name: Toggle Play/Freeze
   m_TagString: Untagged
@@ -1183,21 +1182,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2001756294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001756292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e679b10ef7614c1592bc1944254d5fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paperList:
-  - {fileID: 4468344496463012170}
-  - {fileID: 697327474}
 --- !u!114 &2001756295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,8 +1226,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2001756294}
-        m_TargetAssemblyTypeName: TogglePlayFreeze, Assembly-CSharp
+      - m_Target: {fileID: 2005876212}
+        m_TargetAssemblyTypeName: PaperStack, Assembly-CSharp
         m_MethodName: Toggle
         m_Mode: 1
         m_Arguments:
@@ -1292,6 +1276,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001756292}
   m_CullTransparentMesh: 1
+--- !u!1 &2005876211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2005876213}
+  - component: {fileID: 2005876212}
+  m_Layer: 0
+  m_Name: PaperStack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2005876212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005876211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67722ae8e564941c588e6a57f6937470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paperList:
+  - {fileID: 4468344496463012169}
+  - {fileID: 697327473}
+--- !u!4 &2005876213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005876211}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2036951117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,11 +1551,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5150557161475897461, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.84
+      value: 1.91
       objectReference: {fileID: 0}
     - target: {fileID: 5150557161475897461, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.66
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 5150557161475897461, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1610,3 +1641,4 @@ SceneRoots:
   - {fileID: 458134740}
   - {fileID: 1471436735}
   - {fileID: 2108487726}
+  - {fileID: 2005876213}
