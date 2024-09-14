@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stapler : MonoBehaviour
+public class Pin : MonoBehaviour
 {
-    [SerializeField] GameObject staple;
-    [SerializeField] TogglePlayFreeze toggleScript;
+    [SerializeField] GameObject pin;
 
     void OnClick() {
         Debug.Log("click");
@@ -17,14 +16,13 @@ public class Stapler : MonoBehaviour
         Debug.Log(colliders);
 
         if (colliders.Length > 0) {
-            GameObject newStaple = Instantiate(staple, mousePosInWorld, Quaternion.identity);
+            GameObject newPin = Instantiate(pin, mousePosInWorld, Quaternion.identity);
             foreach (Collider2D collider in colliders)
             {
                 Rigidbody2D rb = collider.attachedRigidbody;
                 if (rb != null)
                 {
-                    HingeJoint2D hinge = newStaple.AddComponent<HingeJoint2D>();
-                    toggleScript.AddElement(newStaple.GetComponent<Rigidbody2D>());
+                    HingeJoint2D hinge = newPin.AddComponent<HingeJoint2D>();
                     hinge.connectedBody = rb;
                 }
             }
