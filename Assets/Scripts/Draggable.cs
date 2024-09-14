@@ -31,7 +31,7 @@ public class Draggable : MonoBehaviour
     {
         //Play sound
         audioSource.Play();
-        
+
         Debug.Log("clicked");
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -45,7 +45,8 @@ public class Draggable : MonoBehaviour
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         Bounds objectBounds = GetComponent<Collider2D>().bounds;
         Bounds areaBounds = playArea.bounds;
-        if (!areaBounds.Contains(objectBounds.min) || !areaBounds.Contains(objectBounds.max)) {
+        if (!areaBounds.Contains(objectBounds.min) || !areaBounds.Contains(objectBounds.max))
+        {
             posLogic.ResetToStack();
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
