@@ -6,7 +6,6 @@ using TMPro;
 public class DetectorLogic : MonoBehaviour
 {
     private bool outerDetectsPaper;
-    public TMP_Text statusText;
     [SerializeField] PaperStack paperStack;
     [SerializeField] LevelComplete levelComplete;
 
@@ -15,7 +14,6 @@ public class DetectorLogic : MonoBehaviour
 
     void Start()
     {
-        statusText.text = "Not complete";
     }
 
     public bool CheckInnerDetectors()
@@ -44,7 +42,6 @@ public class DetectorLogic : MonoBehaviour
         outerDetectsPaper = numColliders > 1;
         if (outerDetectsPaper || !CheckInnerDetectors())
         {
-            statusText.text = "Does not fit :(";
             Invoke("RestartLevel", 3.0f);
         }
         else
