@@ -19,6 +19,7 @@ public class TogglePlayFreeze : MonoBehaviour
     // Method to disable gravity on all pieces of paper
     private void DisableGravity()
     {
+        Debug.Log("Disabled Gravity");
         isFrozen = true;
         foreach (Rigidbody2D rb in paperList)
         {
@@ -27,6 +28,8 @@ public class TogglePlayFreeze : MonoBehaviour
             rb.velocity = Vector2.zero;
             originalAngularMomentums[rb] = rb.angularVelocity;
             rb.angularVelocity = 0f;
+            Debug.Log(rb.velocity);
+            Debug.Log(rb.angularVelocity);
         }
     }
 
