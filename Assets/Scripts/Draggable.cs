@@ -27,6 +27,7 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseDown()
     {
+        Debug.Log("clicked");
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         posLogic.ShowFullSize();
         dragging = true;
