@@ -9,10 +9,12 @@ public class Draggable : MonoBehaviour
 
     private Stackable posLogic;
     [SerializeField] Collider2D playArea;
+    private AudioSource audioSource;
 
     void Start()
     {
         posLogic = GetComponent<Stackable>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,9 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseDown()
     {
+        //Play sound
+        audioSource.Play();
+        
         Debug.Log("clicked");
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);

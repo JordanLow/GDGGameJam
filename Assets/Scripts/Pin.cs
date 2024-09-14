@@ -9,10 +9,12 @@ public class Pin : MonoBehaviour
     [SerializeField] private int numofPins;
 
     private bool triggered;
+    private AudioSource audioSource;
 
     void Start()
     {
         pin.GetComponent<Removable>().UpdatePaperStack(paperStack);
+        audioSource = GetComponent<AudioSource>();
     }
     
     void Update()
@@ -34,6 +36,9 @@ public class Pin : MonoBehaviour
     void PlacePin()
     {
         Debug.Log("PlacePin");
+        //Play sound
+        audioSource.Play();
+
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosInWorld.z = 0f;
 
