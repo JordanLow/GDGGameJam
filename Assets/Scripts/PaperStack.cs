@@ -60,7 +60,7 @@ public class PaperStack : MonoBehaviour
     }
 
     // Method to re-enable gravity on all pieces of paper
-    public void EnableGravity()
+    private void EnableGravity()
     {
         isFrozen = false;
         spriteRenderer.sprite = freeze;
