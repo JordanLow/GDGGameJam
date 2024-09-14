@@ -6,11 +6,10 @@ public class Stapler : MonoBehaviour
 {
     [SerializeField] GameObject staple;
     [SerializeField] PaperStack toggleScript;
-    private AudioSource audioSource;
+
     void Start()
     {
         staple.GetComponent<Removable>().UpdatePaperStack(toggleScript);
-        audioSource = GetComponent<AudioSource>();
     }
 
     void OnRightClick()
@@ -23,9 +22,6 @@ public class Stapler : MonoBehaviour
 
     void PlaceStaple()
     {
-        //Play sound
-        audioSource.Play();
-
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosInWorld.z = 0f;
 
