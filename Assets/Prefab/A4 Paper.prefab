@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8678438117869129607}
   - component: {fileID: -1553377362627221900}
   - component: {fileID: 3554973527630602914}
+  - component: {fileID: 4902458236241691155}
   m_Layer: 0
   m_Name: A4 Paper
   m_TagString: Untagged
@@ -143,3 +144,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0c467053efcce44812e0216b5a9dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4902458236241691155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4475015973290512836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe4c49f27610d42d38445586074453fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialScale: {x: 0, y: 0, z: 0}

@@ -308,6 +308,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Paper
       objectReference: {fileID: 0}
+    - target: {fileID: 4902458236241691155, guid: d48d3f94448866648b625734c66dd122, type: 3}
+      propertyPath: initialScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902458236241691155, guid: d48d3f94448866648b625734c66dd122, type: 3}
+      propertyPath: initialScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902458236241691155, guid: d48d3f94448866648b625734c66dd122, type: 3}
+      propertyPath: initialScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5150557161475897461, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7
@@ -355,6 +367,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4475015973290512836, guid: d48d3f94448866648b625734c66dd122, type: 3}
       insertIndex: -1
       addedObject: {fileID: 697327474}
+    - targetCorrespondingSourceObject: {fileID: 4475015973290512836, guid: d48d3f94448866648b625734c66dd122, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 697327479}
   m_SourcePrefab: {fileID: 100100000, guid: d48d3f94448866648b625734c66dd122, type: 3}
 --- !u!1 &697327473 stripped
 GameObject:
@@ -388,6 +403,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &697327479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697327473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe4c49f27610d42d38445586074453fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialScale: {x: 1, y: 1, z: 1}
 --- !u!1 &772934546
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +634,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 53.8
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -989,7 +1018,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 43.05
   m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1549,6 +1578,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Paper
       objectReference: {fileID: 0}
+    - target: {fileID: 4902458236241691155, guid: d48d3f94448866648b625734c66dd122, type: 3}
+      propertyPath: initialScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902458236241691155, guid: d48d3f94448866648b625734c66dd122, type: 3}
+      propertyPath: initialScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902458236241691155, guid: d48d3f94448866648b625734c66dd122, type: 3}
+      propertyPath: initialScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5150557161475897461, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.91
@@ -1596,6 +1637,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4475015973290512836, guid: d48d3f94448866648b625734c66dd122, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4468344496463012170}
+    - targetCorrespondingSourceObject: {fileID: 4475015973290512836, guid: d48d3f94448866648b625734c66dd122, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4468344496463012175}
   m_SourcePrefab: {fileID: 100100000, guid: d48d3f94448866648b625734c66dd122, type: 3}
 --- !u!1 &4468344496463012169 stripped
 GameObject:
@@ -1629,6 +1673,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4468344496463012175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4468344496463012169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe4c49f27610d42d38445586074453fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialPosition: {x: 0, y: 0, z: 0}
+  initialScale: {x: 1, y: 1, z: 1}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

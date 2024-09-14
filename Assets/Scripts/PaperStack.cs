@@ -19,7 +19,6 @@ public class PaperStack : MonoBehaviour
     // Method to disable gravity on all pieces of paper
     private void DisableGravity()
     {
-        Debug.Log("Disabled Gravity");
         isFrozen = true;
         foreach (GameObject robj in paperList)
         {
@@ -29,8 +28,6 @@ public class PaperStack : MonoBehaviour
             rb.velocity = Vector2.zero;
             originalAngularMomentums[rb] = rb.angularVelocity;
             rb.angularVelocity = 0f;
-            Debug.Log(rb.velocity);
-            Debug.Log(rb.angularVelocity);
         }
     }
 

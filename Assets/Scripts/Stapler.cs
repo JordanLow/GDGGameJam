@@ -8,13 +8,10 @@ public class Stapler : MonoBehaviour
     [SerializeField] PaperStack toggleScript;
 
     void OnRightClick() {
-        Debug.Log("click");
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosInWorld.z = 0f;
 
         Collider2D[] colliders = Physics2D.OverlapPointAll(mousePosInWorld);
-
-        Debug.Log(colliders);
 
         if (colliders.Length > 0) {
             GameObject newStaple = Instantiate(staple, mousePosInWorld, Quaternion.identity);
