@@ -14,39 +14,6 @@ public class DetectorLogic : MonoBehaviour
     void Start()
     {
         statusText.text = "Not complete";
-        outerDetectsPaper = false;
-    }
-
-    void Update()
-    {
-        outerDetectsPaper = false;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.CompareTag("Paper"))
-        {
-            outerDetectsPaper = true;
-            Debug.Log("Collider is touching paper");
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Paper"))
-        {
-            outerDetectsPaper = false;
-            Debug.Log("Collider is not touching paper");
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Paper"))
-        {
-            outerDetectsPaper = true;
-        }
     }
 
     public bool CheckInnerDetectors()
@@ -66,6 +33,11 @@ public class DetectorLogic : MonoBehaviour
     public void CheckCompletion()
     {
         Debug.Log("Outer: " + outerDetectsPaper);
+        Collider2D[] colliders = new Collider2D[10];
+        int numColliders = Physics2D.OverlapCollider(GetComponent<Collider2D>(), new ContactFilter2D().NoFilter(), colliders);
+        outerDetectsPaper = numColliders>1;
+        Debug.Log(numColliders);
+        Debug.Log(colliders[0]);
         if (outerDetectsPaper || !CheckInnerDetectors())
         {
             statusText.text = "Does not fit :(";
