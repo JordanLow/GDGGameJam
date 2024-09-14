@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TogglePlayFreeze : MonoBehaviour
 {
-    public List<Rigidbody2D> paperList = new List<Rigidbody2D>();
+    [SerializeField] private List<Rigidbody2D> paperList = new List<Rigidbody2D>();
 
     private Dictionary<Rigidbody2D, Vector2> originalVelocities = new Dictionary<Rigidbody2D, Vector2>();
     private Dictionary<Rigidbody2D, float> originalAngularMomentums = new Dictionary<Rigidbody2D, float>();
@@ -53,4 +53,9 @@ public class TogglePlayFreeze : MonoBehaviour
             DisableGravity();
         }
     }
+
+    public void AddElement(Rigidbody2D elem) {
+        paperList.Add(elem);
+        this.DisableGravity();
+        }
 }
