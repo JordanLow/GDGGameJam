@@ -473,11 +473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902458236241691155, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: fullScale.x
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4902458236241691155, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: fullScale.y
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4902458236241691155, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: fullScale.z
@@ -485,11 +485,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902458236241691155, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: initialScale.x
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4902458236241691155, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: initialScale.y
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4902458236241691155, guid: d48d3f94448866648b625734c66dd122, type: 3}
       propertyPath: initialScale.z

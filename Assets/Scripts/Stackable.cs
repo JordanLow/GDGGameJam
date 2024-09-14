@@ -16,6 +16,7 @@ public class Stackable : MonoBehaviour
     {
         transform.position = initialPosition;
         transform.localScale = initialScale;
+        transform.rotation = Quaternion.identity;
     }
 
     public void ShowFullSize() 
