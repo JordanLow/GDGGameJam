@@ -6,13 +6,14 @@ public class Pin : MonoBehaviour
 {
     [SerializeField] GameObject pin;
     [SerializeField] PaperStack paperStack;
+    [SerializeField] private int numofPins;
 
     private bool triggered;
 
     void Start()
     {
         pin.GetComponent<Removable>().UpdatePaperStack(paperStack);
-    }
+    }g
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
