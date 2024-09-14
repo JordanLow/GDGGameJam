@@ -13,7 +13,7 @@ public class DetectorLogic : MonoBehaviour
 
     void Start()
     {
-        statusText.text = "Not complete";
+        statusText.text = "";
     }
 
     public bool CheckInnerDetectors()
