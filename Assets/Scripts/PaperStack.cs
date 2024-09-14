@@ -14,6 +14,8 @@ public class PaperStack : MonoBehaviour
     private float originalGravity = 1f;
     private bool isFrozen = true; // Track toggle state, true for frozen, false for play
 
+    public bool hoveringOnItem = false;
+
     // Scrapped
     // private int toolSelection = 0;
     // 0: paper dragging
@@ -24,6 +26,11 @@ public class PaperStack : MonoBehaviour
     void Start()
     {
         DisableGravity();
+    }
+
+    void Update()
+    {
+        hoveringOnItem = false;
     }
 
     // public void ChangeTool()

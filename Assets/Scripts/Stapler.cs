@@ -7,7 +7,21 @@ public class Stapler : MonoBehaviour
     [SerializeField] GameObject staple;
     [SerializeField] PaperStack toggleScript;
 
-    void OnRightClick() {
+    void Start()
+    {
+        staple.GetComponent<Removable>().UpdatePaperStack(toggleScript);
+    }
+
+    void OnRightClick()
+    {
+        if (!toggleScript.hoveringOnItem)
+        {
+            PlaceStaple();
+        }
+    }
+
+    void PlaceStaple()
+    {
         Debug.Log("click");
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosInWorld.z = 0f;
@@ -16,7 +30,8 @@ public class Stapler : MonoBehaviour
 
         Debug.Log(colliders);
 
-        if (colliders.Length > 0) {
+        if (colliders.Length > 0)
+        {
             GameObject newStaple = Instantiate(staple, mousePosInWorld, Quaternion.identity);
             foreach (Collider2D collider in colliders)
             {

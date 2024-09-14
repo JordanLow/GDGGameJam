@@ -5,13 +5,19 @@ using UnityEngine;
 public class Pin : MonoBehaviour
 {
     [SerializeField] GameObject pin;
+    [SerializeField] PaperStack paperStack;
 
     private bool triggered;
+
+    void Start()
+    {
+        pin.GetComponent<Removable>().UpdatePaperStack(paperStack);
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!triggered)
+            if (!triggered && !paperStack.hoveringOnItem)
             {
                 PlacePin();
             }

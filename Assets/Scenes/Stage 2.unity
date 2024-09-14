@@ -729,7 +729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staple: {fileID: 1863059516776725472, guid: 76d51505354364d35b1dac59b12099f8, type: 3}
-  toggleScript: {fileID: 0}
+  toggleScript: {fileID: 1441899031}
 --- !u!114 &609263740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1343,6 +1343,7 @@ MonoBehaviour:
   - {fileID: 4468344496463012169}
   - {fileID: 697327473}
   toolText: {fileID: 1969560808}
+  hoveringOnItem: 0
 --- !u!4 &1441899032
 Transform:
   m_ObjectHideFlags: 0
@@ -2362,6 +2363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pin: {fileID: 2132042544356100923, guid: 007d4ec8da8e84b32bf0a8f74ba7d394, type: 3}
+  paperStack: {fileID: 1441899031}
 --- !u!114 &2104704096
 MonoBehaviour:
   m_ObjectHideFlags: 0
