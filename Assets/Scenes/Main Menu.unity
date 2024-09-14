@@ -622,7 +622,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1056204426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dbcfd897fd0b124b984a3080894b3cf, type: 3}
+  m_Script: {fileID: 11500000, guid: ec302cb1d330444929aeb3012bb7d5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1056204428
@@ -861,7 +861,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1056204427}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: OpenWeaponSelect
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
