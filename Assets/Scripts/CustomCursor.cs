@@ -11,7 +11,7 @@ public class CustomCursor : MonoBehaviour
 
     void Start()
     {
-		cursorHotspot = new Vector2(0, 225);
+		cursorHotspot = new Vector2(0, normalCursorTexture.height/2);
         // Set the default cursor at the start
         SetNormalCursor();
     }
