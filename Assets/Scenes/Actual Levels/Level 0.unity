@@ -3374,7 +3374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4728709792187619406, guid: 3cc7ffae126293042a569cbcaf556fb3, type: 3}
       propertyPath: goldStarPins
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5241119626219501064, guid: 3cc7ffae126293042a569cbcaf556fb3, type: 3}
       propertyPath: m_fontSize
