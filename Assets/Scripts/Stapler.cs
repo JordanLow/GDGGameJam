@@ -17,7 +17,7 @@ public class Stapler : MonoBehaviour
 
     void OnRightClick()
     {
-        if (!toggleScript.hoveringOnItem)
+        if (!toggleScript.hoveringOnItem && toggleScript.isFrozen)
         {
             PlaceStaple();
         }
@@ -25,7 +25,7 @@ public class Stapler : MonoBehaviour
 
     void PlaceStaple()
     {
-		if (numStaples <= 0) return;
+		if (numStaples <= 0 || !toggleScript.isFrozen) return;
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosInWorld.z = 0f;
 
