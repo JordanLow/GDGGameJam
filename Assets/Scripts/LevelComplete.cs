@@ -8,13 +8,16 @@ public class LevelComplete : MonoBehaviour
 {
     private Scene scene;
     public Canvas completeCanvas;
+    public Canvas starCanvas;
     public TMP_Text completeText;
     public AudioSource yayAudio;
+    public int goldStarPins;
     void Start()
     {
         //completeCanvas.gameObject.SetActive(false);
         yayAudio = GetComponent<AudioSource>();
         completeCanvas.enabled = false;
+        starCanvas.enabled = false;
     }
 
     void Update()
@@ -31,7 +34,14 @@ public class LevelComplete : MonoBehaviour
         completeText.text = "Level " + (scene.buildIndex + 1) + " complete!";
         Debug.Log(scene.buildIndex + 1);
         //completeCanvas.gameObject.SetActive(true);
-		Debug.Log(yayAudio);
+        var pinManager = FindObjectOfType<Pin>();
+        int pinsUsed = pinManager.initialNumOfPins - pinManager.numofPins;
+        if (pinsUsed <= goldStarPins)
+        {
+            Debug.Log("GOLD STAR!");
+            starCanvas.enabled = true;
+        }
+        Debug.Log(yayAudio);
         yayAudio.Play();
         completeCanvas.enabled = true;
     }
