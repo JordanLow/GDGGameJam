@@ -7,7 +7,7 @@ public class Draggable : MonoBehaviour
     private bool dragging = false;
     public bool isFixed = false;
     private Vector3 offset;
-	[SerializeField] PaperStack paperStack;
+    [SerializeField] PaperStack paperStack;
 
     private Stackable posLogic;
     [SerializeField] Collider2D playArea;
@@ -15,7 +15,7 @@ public class Draggable : MonoBehaviour
 
     void Start()
     {
-		gameObject.tag = "PaperOff";
+        gameObject.tag = "PaperOff";
         posLogic = GetComponent<Stackable>();
         audioSource = GetComponent<AudioSource>();
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
@@ -24,7 +24,7 @@ public class Draggable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		//Debug.Log(isFixed);
+        //Debug.Log(isFixed);
         if (dragging && !isFixed)
         {
             GetComponent<Rigidbody2D>().MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset);
@@ -34,13 +34,13 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseDown()
     {
-		if (!paperStack.isFrozen) return;
+        if (!paperStack.isFrozen) return;
         //Play sound
         audioSource.Play();
 
         Debug.Log("clicked");
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-		gameObject.tag = "Paper";
+        gameObject.tag = "Paper";
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         posLogic.ShowFullSize();
         dragging = true;
@@ -48,14 +48,26 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseUp()
     {
-		if (!dragging) return;
+        if (!dragging) return;
         dragging = false;
-		GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         if (!BoundedInPlay())
         {
-			gameObject.tag = "PaperOff";
+            gameObject.tag = "PaperOff";
             posLogic.ResetToStack();
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+
+            var foundHinges = FindObjectsOfType<HingeJoint2D>();
+            var stapler = FindObjectOfType<Stapler>();
+            foreach (HingeJoint2D hinge in foundHinges)
+            {
+                if (hinge.connectedBody == GetComponent<Rigidbody2D>())
+                {
+                    Debug.Log("Destroying staple");
+                    stapler.RemovedStaple();
+                    Destroy(hinge.gameObject);
+                }
+            }
         }
     }
 

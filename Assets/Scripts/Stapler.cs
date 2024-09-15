@@ -6,13 +6,13 @@ public class Stapler : MonoBehaviour
 {
     [SerializeField] GameObject staple;
     [SerializeField] PaperStack toggleScript;
-	[SerializeField] StapleIndicators stapleUI;
-	[SerializeField] int numStaples;
+    [SerializeField] StapleIndicators stapleUI;
+    [SerializeField] int numStaples;
 
     void Start()
     {
         staple.GetComponent<Removable>().UpdatePaperStack(toggleScript);
-		staple.GetComponent<Removable>().UpdateStapler(this);
+        staple.GetComponent<Removable>().UpdateStapler(this);
     }
 
     void OnRightClick()
@@ -25,23 +25,24 @@ public class Stapler : MonoBehaviour
 
     void PlaceStaple()
     {
-		if (numStaples <= 0 || !toggleScript.isFrozen) return;
+        if (numStaples <= 0 || !toggleScript.isFrozen) return;
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosInWorld.z = 0f;
 
         Collider2D[] colliders = Physics2D.OverlapPointAll(mousePosInWorld);
-		bool touchingPaper = false;
-		foreach (Collider2D collider in colliders) {
-			if (collider.gameObject.CompareTag("Paper")) touchingPaper = true;
-		}
+        bool touchingPaper = false;
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.CompareTag("Paper")) touchingPaper = true;
+        }
         if (touchingPaper)
         {
             GameObject newStaple = Instantiate(staple, mousePosInWorld, Quaternion.identity);
-			numStaples--;
-			stapleUI.RemoveStaple();
+            numStaples--;
+            stapleUI.RemoveStaple();
             foreach (Collider2D collider in colliders)
             {
-				if (!collider.gameObject.CompareTag("Paper")) continue;
+                if (!collider.gameObject.CompareTag("Paper")) continue;
                 Rigidbody2D rb = collider.attachedRigidbody;
                 if (rb != null)
                 {
@@ -52,10 +53,11 @@ public class Stapler : MonoBehaviour
             }
         }
     }
-	
-	public void RemovedStaple()
-	{
-		stapleUI.AddStaple();
-		numStaples++;
-	}
+
+    public void RemovedStaple()
+    {
+        stapleUI.AddStaple();
+        numStaples++;
+        Debug.Log("staples " + numStaples);
+    }
 }
