@@ -33,6 +33,7 @@ public class Pin : MonoBehaviour
 
     void PlacePin()
     {
+		if (numofPins <=0) return;
         Debug.Log("PlacePin");
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosInWorld.z = 0f;
