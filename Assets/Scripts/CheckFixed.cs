@@ -93,4 +93,9 @@ public class CheckFixed : MonoBehaviour
             drag.isFixed = false;
         }
     }
+	
+	private void OnMouseDown()
+    {
+		FindFixed();
+	}
 }
