@@ -16,7 +16,11 @@ public class LevelComplete : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("Retrying Level");
+            RetryLevel();
+        }
     }
 
     public void CompletedLevel()
