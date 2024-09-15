@@ -7,13 +7,13 @@ public class InnerDetectorLogic : MonoBehaviour
     private int numCol;
     void Start()
     {
-        numCol = 2;
+        numCol = 1;
         touchingPaper = false;
     }
 
     void Update()
     {
-        touchingPaper = numCol > 2;
+        touchingPaper = numCol > 1;
 		Debug.Log(numCol);
     }
 
@@ -31,7 +31,7 @@ public class InnerDetectorLogic : MonoBehaviour
         if (collision.gameObject.CompareTag("Paper"))
         {
             //Debug.Log("touching" +gameObject.name);
-            numCol++;
+            numCol--;
         }
     }
 }
