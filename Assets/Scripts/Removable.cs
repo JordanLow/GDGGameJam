@@ -5,6 +5,8 @@ using UnityEngine;
 public class Removable : MonoBehaviour
 {
     [SerializeField] PaperStack paperStack;
+	[SerializeField] Stapler stapler;
+
     void Start()
     {
 
@@ -19,11 +21,15 @@ public class Removable : MonoBehaviour
     {
         paperStack = obj;
     }
-
+	
+	public void UpdateStapler(Stapler obj) {
+		stapler = obj;
+	}
 
     void OnMouseDown()
     {
         Debug.Log("Destroy object");
+		stapler.RemovedStaple();
         Destroy(gameObject);
     }
 
