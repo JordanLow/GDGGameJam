@@ -24,7 +24,7 @@ public class Draggable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		Debug.Log(isFixed);
+		//Debug.Log(isFixed);
         if (dragging && !isFixed)
         {
             GetComponent<Rigidbody2D>().MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset);

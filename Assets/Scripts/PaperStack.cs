@@ -50,6 +50,7 @@ public class PaperStack : MonoBehaviour
         spriteRenderer.sprite = play;
         foreach (GameObject robj in paperList)
         {
+			if (robj == null) continue;
             Rigidbody2D rb = robj.GetComponent<Rigidbody2D>();
             rb.gravityScale = 0f;
             originalVelocities[rb] = rb.velocity;
@@ -68,6 +69,7 @@ public class PaperStack : MonoBehaviour
         spriteRenderer.sprite = freeze;
         foreach (GameObject robj in paperList)
         {
+			if (robj == null) continue;
             Rigidbody2D rb = robj.GetComponent<Rigidbody2D>();
             rb.gravityScale = originalGravity;
             rb.velocity = originalVelocities[rb];
