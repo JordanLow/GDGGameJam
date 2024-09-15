@@ -14,6 +14,7 @@ public class LevelComplete : MonoBehaviour
     {
         completeCanvas.gameObject.SetActive(false);
         yayAudio = GetComponent<AudioSource>();
+        completeCanvas.enabled = false;
     }
 
     void Update()
@@ -31,6 +32,7 @@ public class LevelComplete : MonoBehaviour
         Debug.Log(scene.buildIndex + 1);
         completeCanvas.gameObject.SetActive(true);
         yayAudio.Play(0);
+        completeCanvas.enabled = true;
     }
 
     public void NextLevel()

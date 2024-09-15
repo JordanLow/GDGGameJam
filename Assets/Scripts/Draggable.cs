@@ -23,9 +23,10 @@ public class Draggable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		Debug.Log(isFixed);
         if (dragging && !isFixed)
         {
-            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+            GetComponent<Rigidbody2D>().MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset);
             // mousePosInWorld.z = 0f;
         }
     }
@@ -36,7 +37,7 @@ public class Draggable : MonoBehaviour
         audioSource.Play();
 
         Debug.Log("clicked");
-        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
 		gameObject.tag = "Paper";
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         posLogic.ShowFullSize();
@@ -47,6 +48,8 @@ public class Draggable : MonoBehaviour
     {
         dragging = false;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+		GetComponent<Rigidbody2D>().angularVelocity = 0f;
+		GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         if (!BoundedInPlay())
         {
 			gameObject.tag = "PaperOff";
