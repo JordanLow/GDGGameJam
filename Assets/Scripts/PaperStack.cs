@@ -12,7 +12,7 @@ public class PaperStack : MonoBehaviour
     private Dictionary<Rigidbody2D, float> originalAngularMomentums = new Dictionary<Rigidbody2D, float>();
 
     private float originalGravity = 1f;
-    private bool isFrozen = true; // Track toggle state, true for frozen, false for play
+    public bool isFrozen = true; // Track toggle state, true for frozen, false for play
     [SerializeField] Sprite freeze;
     [SerializeField] Sprite play;
     [SerializeField] Image spriteRenderer;

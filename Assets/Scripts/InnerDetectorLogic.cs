@@ -20,7 +20,7 @@ public class InnerDetectorLogic : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Paper"))
         {
-            Debug.Log("touching" +gameObject.name);
+            //Debug.Log("touching" +gameObject.name);
             numCol++;
         }
     }
@@ -29,7 +29,7 @@ public class InnerDetectorLogic : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Paper"))
         {
-            Debug.Log("touching" +gameObject.name);
+            //Debug.Log("touching" +gameObject.name);
             numCol++;
         }
     }

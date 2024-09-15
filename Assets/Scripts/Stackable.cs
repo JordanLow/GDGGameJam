@@ -14,8 +14,8 @@ public class Stackable : MonoBehaviour
 
     public void ResetToStack() 
     {
+		transform.localScale = initialScale;
         transform.position = initialPosition;
-        transform.localScale = initialScale;
         transform.rotation = Quaternion.identity;
     }
 

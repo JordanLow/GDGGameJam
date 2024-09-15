@@ -44,12 +44,33 @@ public class Draggable : MonoBehaviour
     {
         dragging = false;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        Bounds objectBounds = GetComponent<Collider2D>().bounds;
-        Bounds areaBounds = playArea.bounds;
-        if (!areaBounds.Contains(objectBounds.min) || !areaBounds.Contains(objectBounds.max))
+        if (!BoundedInPlay())
         {
             posLogic.ResetToStack();
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
+    }
+	
+	private bool BoundedInPlay()
+    {
+        Bounds areaBounds = playArea.bounds;
+		PolygonCollider2D polygon = GetComponent<PolygonCollider2D>();
+
+        // Get all the points (vertices) of the polygon in world space
+        for (int i = 0; i < polygon.points.Length; i++)
+        {
+            // Convert local space point to world space
+            Vector2 worldPoint = polygon.transform.TransformPoint(polygon.points[i]);
+
+            // Check if the point is inside the box bounds
+            if (!areaBounds.Contains(worldPoint))
+            {
+                // If any point is outside the box, the polygon is not fully enclosed
+                return false;
+            }
+        }
+
+        // All points are inside the box
+        return true;
     }
 }

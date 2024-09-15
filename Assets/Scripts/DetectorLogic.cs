@@ -8,13 +8,36 @@ public class DetectorLogic : MonoBehaviour
     private bool outerDetectsPaper;
     [SerializeField] PaperStack paperStack;
     [SerializeField] LevelComplete levelComplete;
+	[SerializeField] TMP_Text timer; 
+	[SerializeField] float checkDuration;
 
     public List<InnerDetectorLogic> innerDetectors = new List<InnerDetectorLogic>();
     public int numInner;
+	private float timeLeft;
 
     void Start()
     {
+		timeLeft = checkDuration;
+		timer.text = string.Format("{0:N1}", timeLeft);
     }
+	
+	void Update() {
+		timer.text = string.Format("{0:N1}", timeLeft);
+		if (timeLeft <= 0) {
+			timer.text = "0.0";
+            levelComplete.CompletedLevel();
+			return;
+		}
+		if (paperStack.isFrozen) {
+			timeLeft = checkDuration;
+		} else {
+			if (DetermineCompletion()) {
+				timeLeft -= Time.deltaTime;
+			} else {
+				timeLeft = checkDuration;
+			}
+		}
+	}
 
     public bool CheckInnerDetectors()
     {
@@ -26,7 +49,7 @@ public class DetectorLogic : MonoBehaviour
                 touchingCount++;
             }
         }
-        Debug.Log("Touching: " + touchingCount);
+        //Debug.Log("Touching: " + touchingCount);
         return touchingCount == numInner;
     }
 
@@ -35,27 +58,11 @@ public class DetectorLogic : MonoBehaviour
         levelComplete.RetryLevel();
     }
 
-    public void DetermineCompletion()
+    public bool DetermineCompletion()
     {
         Collider2D[] colliders = new Collider2D[10];
         int numColliders = Physics2D.OverlapCollider(GetComponent<Collider2D>(), new ContactFilter2D().NoFilter(), colliders);
         outerDetectsPaper = numColliders > 1;
-        if (outerDetectsPaper || !CheckInnerDetectors())
-        {
-            Invoke("RestartLevel", 3.0f);
-        }
-        else
-        {
-            levelComplete.CompletedLevel();
-        }
-    }
-
-    public void CheckCompletion()
-    {
-        //Enable gravity
-        paperStack.EnableGravity();
-
-        // Check for completion after 3 seconds
-        Invoke("DetermineCompletion", 3.0f);
+        return !(outerDetectsPaper || !CheckInnerDetectors());
     }
 }
