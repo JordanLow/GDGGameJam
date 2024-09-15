@@ -2879,6 +2879,7 @@ MonoBehaviour:
   numofPins: 2
   firstPinIndicator: {fileID: 377959462}
   pinnableZone: {fileID: 2051475181}
+  initialNumOfPins: 0
 --- !u!114 &1757776836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3700,6 +3701,10 @@ PrefabInstance:
     - target: {fileID: 4311789888184371795, guid: 3cc7ffae126293042a569cbcaf556fb3, type: 3}
       propertyPath: m_Name
       value: WinScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728709792187619406, guid: 3cc7ffae126293042a569cbcaf556fb3, type: 3}
+      propertyPath: goldStarPins
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5241119626219501064, guid: 3cc7ffae126293042a569cbcaf556fb3, type: 3}
       propertyPath: m_fontSize
