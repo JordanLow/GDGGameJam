@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Removable : MonoBehaviour
 {
-    private PaperStack paperStack;
-	private Stapler stapler;
+    [SerializeField] PaperStack paperStack;
+	[SerializeField] Stapler stapler;
 
     void Start()
     {

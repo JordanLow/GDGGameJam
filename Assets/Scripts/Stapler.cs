@@ -52,5 +52,6 @@ public class Stapler : MonoBehaviour
 	public void RemovedStaple()
 	{
 		stapleUI.AddStaple();
+		numStaples++;
 	}
 }
