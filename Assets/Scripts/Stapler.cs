@@ -23,6 +23,15 @@ public class Stapler : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            PlaceStaple();
+        }
+    }
+
+
     void PlaceStaple()
     {
         if (numStaples <= 0 || !toggleScript.isFrozen) return;
