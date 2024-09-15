@@ -7,6 +7,7 @@ public class Draggable : MonoBehaviour
     private bool dragging = false;
     public bool isFixed = false;
     private Vector3 offset;
+	[SerializeField] PaperStack paperStack;
 
     private Stackable posLogic;
     [SerializeField] Collider2D playArea;
@@ -33,6 +34,7 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseDown()
     {
+		if (!paperStack.isFrozen) return;
         //Play sound
         audioSource.Play();
 
@@ -46,10 +48,9 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseUp()
     {
+		if (!dragging) return;
         dragging = false;
-        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-		GetComponent<Rigidbody2D>().angularVelocity = 0f;
-		GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+		GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         if (!BoundedInPlay())
         {
 			gameObject.tag = "PaperOff";

@@ -57,6 +57,7 @@ public class PaperStack : MonoBehaviour
             originalAngularMomentums[rb] = rb.angularVelocity;
             rb.angularVelocity = 0f;
 			rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+			rb.drag = 9999;
         }
     }
 
@@ -72,6 +73,7 @@ public class PaperStack : MonoBehaviour
             rb.velocity = originalVelocities[rb];
             rb.angularVelocity = originalAngularMomentums[rb];
 			rb.constraints = RigidbodyConstraints2D.None;
+			rb.drag = 0;
         }
     }
 
