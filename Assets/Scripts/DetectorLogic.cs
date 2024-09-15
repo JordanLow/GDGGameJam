@@ -22,10 +22,10 @@ public class DetectorLogic : MonoBehaviour
     }
 	
 	void Update() {
-		timer.text = string.Format("{0:N1}", timeLeft);
 		if (timeLeft == -999f) {
 			return;
 		}
+		timer.text = string.Format("{0:N1}", timeLeft);
 		if (timeLeft <= 0) {
 			timer.text = "0.0";
 			timeLeft = -999f;
