@@ -5,6 +5,7 @@ using UnityEngine;
 public class Draggable : MonoBehaviour
 {
     private bool dragging = false;
+    public bool isFixed = false;
     private Vector3 offset;
 
     private Stackable posLogic;
@@ -16,13 +17,13 @@ public class Draggable : MonoBehaviour
 		gameObject.tag = "PaperOff";
         posLogic = GetComponent<Stackable>();
         audioSource = GetComponent<AudioSource>();
-		GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (dragging)
+        if (dragging && !isFixed)
         {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
             // mousePosInWorld.z = 0f;
@@ -53,11 +54,11 @@ public class Draggable : MonoBehaviour
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
     }
-	
-	private bool BoundedInPlay()
+
+    private bool BoundedInPlay()
     {
         Bounds areaBounds = playArea.bounds;
-		PolygonCollider2D polygon = GetComponent<PolygonCollider2D>();
+        PolygonCollider2D polygon = GetComponent<PolygonCollider2D>();
 
         // Get all the points (vertices) of the polygon in world space
         for (int i = 0; i < polygon.points.Length; i++)
