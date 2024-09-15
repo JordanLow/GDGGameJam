@@ -8,6 +8,7 @@ public class Pin : MonoBehaviour
     [SerializeField] PaperStack paperStack;
     [SerializeField] private int numofPins;
 	[SerializeField] PinUI firstPinIndicator;
+	[SerializeField] PolygonCollider2D pinnableZone;
 
     private bool triggered;
 
@@ -38,27 +39,21 @@ public class Pin : MonoBehaviour
         Debug.Log("PlacePin");
         Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosInWorld.z = 0f;
-
+		if (!pinnableZone.OverlapPoint(mousePosInWorld)) return;
         Collider2D[] colliders = Physics2D.OverlapPointAll(mousePosInWorld);
-
-        Debug.Log(colliders);
-
-        if (colliders.Length > 0)
-        {
             GameObject newPin = Instantiate(pin, mousePosInWorld, Quaternion.identity);
-            numofPins--;
-			GameObject nextpin = firstPinIndicator.NextPin();
-			firstPinIndicator.Remove();
-			firstPinIndicator = nextpin.GetComponent<PinUI>();
-            foreach (Collider2D collider in colliders)
-            {
-                Rigidbody2D rb = collider.attachedRigidbody;
-                if (rb != null)
-                {
-                    HingeJoint2D hinge = newPin.AddComponent<HingeJoint2D>();
-                    hinge.connectedBody = rb;
-                }
-            }
-        }
+		numofPins--;
+		GameObject nextpin = firstPinIndicator.NextPin();
+		firstPinIndicator.Remove();
+		firstPinIndicator = nextpin.GetComponent<PinUI>();
+		foreach (Collider2D collider in colliders)
+		{
+			Rigidbody2D rb = collider.attachedRigidbody;
+			if (rb != null)
+			{
+				HingeJoint2D hinge = newPin.AddComponent<HingeJoint2D>();
+				hinge.connectedBody = rb;
+			}
+		}
     }
 }

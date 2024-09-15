@@ -2527,6 +2527,7 @@ MonoBehaviour:
   pin: {fileID: 2132042544356100923, guid: 007d4ec8da8e84b32bf0a8f74ba7d394, type: 3}
   paperStack: {fileID: 1363474817}
   numofPins: 2
+  firstPinIndicator: {fileID: 377959462}
 --- !u!114 &1757776836
 MonoBehaviour:
   m_ObjectHideFlags: 0
