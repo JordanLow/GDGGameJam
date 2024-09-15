@@ -11,7 +11,7 @@ public class LevelComplete : MonoBehaviour
     public TMP_Text completeText;
     void Start()
     {
-        completeCanvas.gameObject.SetActive(false);
+        completeCanvas.enabled = false;
     }
 
     void Update()
@@ -27,7 +27,7 @@ public class LevelComplete : MonoBehaviour
     {
         completeText.text = "Level " + (scene.buildIndex + 1) + " complete!";
         Debug.Log(scene.buildIndex + 1);
-        completeCanvas.gameObject.SetActive(true);
+        completeCanvas.enabled = true;
     }
 
     public void NextLevel()
