@@ -12,7 +12,7 @@ public class LevelComplete : MonoBehaviour
     public AudioSource yayAudio;
     void Start()
     {
-        completeCanvas.gameObject.SetActive(false);
+        //completeCanvas.gameObject.SetActive(false);
         yayAudio = GetComponent<AudioSource>();
         completeCanvas.enabled = false;
     }
@@ -30,7 +30,7 @@ public class LevelComplete : MonoBehaviour
     {
         completeText.text = "Level " + (scene.buildIndex + 1) + " complete!";
         Debug.Log(scene.buildIndex + 1);
-        completeCanvas.gameObject.SetActive(true);
+        //completeCanvas.gameObject.SetActive(true);
 		Debug.Log(yayAudio);
         yayAudio.Play();
         completeCanvas.enabled = true;
