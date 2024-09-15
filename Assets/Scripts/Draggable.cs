@@ -15,6 +15,7 @@ public class Draggable : MonoBehaviour
     {
         posLogic = GetComponent<Stackable>();
         audioSource = GetComponent<AudioSource>();
+		GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
     }
 
     // Update is called once per frame
