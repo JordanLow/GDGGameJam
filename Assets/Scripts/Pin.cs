@@ -41,11 +41,15 @@ public class Pin : MonoBehaviour
         mousePosInWorld.z = 0f;
 		if (!pinnableZone.OverlapPoint(mousePosInWorld)) return;
         Collider2D[] colliders = Physics2D.OverlapPointAll(mousePosInWorld);
-            GameObject newPin = Instantiate(pin, mousePosInWorld, Quaternion.identity);
+        GameObject newPin = Instantiate(pin, mousePosInWorld, Quaternion.identity);
 		numofPins--;
-		GameObject nextpin = firstPinIndicator.NextPin();
-		firstPinIndicator.Remove();
-		firstPinIndicator = nextpin.GetComponent<PinUI>();
+		try {
+			GameObject nextpin = firstPinIndicator.NextPin();
+			firstPinIndicator.Remove();
+			firstPinIndicator = nextpin.GetComponent<PinUI>();
+		} catch {
+			Debug.Log("outta pins");
+		}
 		foreach (Collider2D collider in colliders)
 		{
 			Rigidbody2D rb = collider.attachedRigidbody;
