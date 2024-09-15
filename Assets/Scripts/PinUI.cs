@@ -14,10 +14,12 @@ public class PinUI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public GameObject NextPin()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && next_pin == null) {
-            Destroy(gameObject);
-        }
+        return next_pin;
     }
+	
+	public void Remove() {
+		Destroy(gameObject);
+	}
 }
