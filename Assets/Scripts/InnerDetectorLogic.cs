@@ -14,7 +14,7 @@ public class InnerDetectorLogic : MonoBehaviour
     void Update()
     {
         touchingPaper = numCol > 1;
-		Debug.Log(numCol);
+		//Debug.Log(numCol);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
