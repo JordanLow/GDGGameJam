@@ -30,14 +30,18 @@ public class Stapler : MonoBehaviour
         mousePosInWorld.z = 0f;
 
         Collider2D[] colliders = Physics2D.OverlapPointAll(mousePosInWorld);
-
-        if (colliders.Length > 0)
+		bool touchingPaper = false;
+		foreach (Collider2D collider in colliders) {
+			if (collider.gameObject.CompareTag("Paper")) touchingPaper = true;
+		}
+        if (touchingPaper)
         {
             GameObject newStaple = Instantiate(staple, mousePosInWorld, Quaternion.identity);
 			numStaples--;
 			stapleUI.RemoveStaple();
             foreach (Collider2D collider in colliders)
             {
+				if (!collider.gameObject.CompareTag("Paper")) continue;
                 Rigidbody2D rb = collider.attachedRigidbody;
                 if (rb != null)
                 {

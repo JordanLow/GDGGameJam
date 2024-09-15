@@ -88,6 +88,8 @@ public class PaperStack : MonoBehaviour
     public void AddElement(GameObject elem)
     {
         paperList.Add(elem);
+		Debug.Log("Added: " + elem);
         this.DisableGravity();
+		Debug.Log("disabling gravity");
     }
 }
