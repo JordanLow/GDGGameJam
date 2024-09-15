@@ -7,6 +7,7 @@ public class Pin : MonoBehaviour
     [SerializeField] GameObject pin;
     [SerializeField] PaperStack paperStack;
     [SerializeField] private int numofPins;
+	[SerializeField] PinUI firstPinIndicator;
 
     private bool triggered;
 
@@ -46,6 +47,9 @@ public class Pin : MonoBehaviour
         {
             GameObject newPin = Instantiate(pin, mousePosInWorld, Quaternion.identity);
             numofPins--;
+			GameObject nextpin = firstPinIndicator.NextPin();
+			firstPinIndicator.Remove();
+			firstPinIndicator = nextpin.GetComponent<PinUI>();
             foreach (Collider2D collider in colliders)
             {
                 Rigidbody2D rb = collider.attachedRigidbody;
