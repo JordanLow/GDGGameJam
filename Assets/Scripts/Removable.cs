@@ -45,7 +45,7 @@ public class Removable : MonoBehaviour
 			Debug.Log(GetComponent<Collider2D>().bounds);
 			
 		}
-		if (Input.GetMouseButtonDown(0) && GetComponent<Collider2D>().bounds.Contains(mousePos)) {
+		if (Input.GetMouseButtonDown(0) && GetComponent<Collider2D>().bounds.Contains(mousePos) && paperStack.isFrozen) {
 			Debug.Log("Destroy object");
 			stapler.RemovedStaple();
 			Destroy(gameObject);
